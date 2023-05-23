@@ -24,7 +24,7 @@ jobs:
           token=$GITHUB_TOKEN
           owner=$GITHUB_REPOSITORY_OWNER
           repo=$GITHUB_REPOSITORY
-          curl - L \
+          curl -L \
             -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
              https://api.github.com/repos/$owner/$repo/issues \
             -o issues.json
