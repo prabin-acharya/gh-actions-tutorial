@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/github-script@v6
         with:
-          github-token: ${{ secrets.gh-action }}
+          github-token: ${{ secrets.gh_action }}
           script: |
             github.rest.issues.createComment({
               issue_number: context.issue.number,
