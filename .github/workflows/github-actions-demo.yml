@@ -21,7 +21,10 @@ jobs:
 
       - name: Get list of open issues
         run: |
-          curl -s https://api.github.com/repos/OWNER/REPO/issues \
+          token=$GITHUB_TOKEN
+          owner=$GITHUB_REPOSITORY_OWNER
+          repo=$GITHUB_REPOSITORY
+          curl -s https://api.github.com/repos/@owner/$repo/issues \
             -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
             -o issues.json
           cat issues.json
