@@ -29,6 +29,8 @@ jobs:
              https://api.github.com/repos/$owner/$repo/issues \
             -o issues.json
           cat issues.json
+          echo token
+        
 
       - name: Print open issues
         run: |
