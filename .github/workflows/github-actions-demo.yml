@@ -30,6 +30,7 @@ jobs:
             -o issues.json
           cat issues.json
           echo token
+          echo $GITHUB_TOKEN
         
 
       - name: Print open issues
