@@ -23,6 +23,5 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: 'Thanks for opening this issue!.This issue was opened by ${{ github.actor }}.This is a demo of GitHub Actions.
-              '
+              body: 'Thanks for opening this issue!.This issue was opened by ${{ github.actor }}.This is a demo of GitHub Actions.'
             })
