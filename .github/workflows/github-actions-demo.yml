@@ -16,8 +16,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: List all open issues
+        id: list-issues
+        run : |
+          token=$GITHUB_TOKEN
+          owner=$GITHUB_REPOSITORY_OWNER
+          repo=$GITHUB_REPOSITORY
+          issues= curl -X GET -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$owner/$repo/issues?state=open
+          echo ::set-output name=issues::$issues
+
+
       - name: Comment on issue
         uses: actions/github-script@v6
+
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
