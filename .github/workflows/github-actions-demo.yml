@@ -25,8 +25,8 @@ jobs:
           token=$GITHUB_TOKEN
           owner=$GITHUB_REPOSITORY_OWNER
           repo=$GITHUB_REPOSITORY
-          issues= curl -X GET -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/$owner/$repo/issues?state=open
-          echo ::set-output name=issues::$issues
+          issues=$(curl -s -H "Authorization: token $token" \"https://api.github.com/repos/$owner/$repo/issues?state=open" | \jq -r '.[] | .title')
+          echo "::set-output name=issue-list::$issues"
 
 
       - name: Comment on issue
